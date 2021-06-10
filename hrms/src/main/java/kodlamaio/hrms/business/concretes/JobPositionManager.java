@@ -6,41 +6,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.JobPositionService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.ErrorResult;
+import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
+import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobPositionDao;
 import kodlamaio.hrms.entities.concretes.JobPosition;
 
 @Service
 public class JobPositionManager implements JobPositionService{
 
-	JobPositionDao positionDao;
+	JobPositionDao jobPositionDao;
 	
 	@Autowired
-	public JobPositionManager(JobPositionDao positionDao) {
+	public JobPositionManager(JobPositionDao jobPositionDao) {
 		super();
-		this.positionDao = positionDao;
+		this.jobPositionDao = jobPositionDao;
 	}
 
 	@Override
-	public void add(JobPosition position) {
-		// TODO Auto-generated method stub
+	public Result add(JobPosition position) {
+		if(jobPositionDao.findByJobName(position.getJobName()) == null) {
+			jobPositionDao.save(position);
+			return new SuccessResult("is pozisyonu kaydedildi");
+		}	
+		return new ErrorResult("bu is pozisyonu zaten mevcut");
 		
 	}
 
 	@Override
-	public void delete(JobPosition position) {
-		// TODO Auto-generated method stub
-		
+	public Result delete(JobPosition position) {
+		jobPositionDao.delete(position);
+		return new SuccessResult("is pozisyonu silindi");
 	}
 
 	@Override
-	public void update(JobPosition position) {
-		// TODO Auto-generated method stub
-		
+	public Result update(JobPosition position) {
+		jobPositionDao.save(position);
+		return new SuccessResult("is pozisyonu guncellendi");
 	}
 
 	@Override
-	public List<JobPosition> getAll() {
-		 return positionDao.findAll();
+	public DataResult<List<JobPosition>> getAll() {
+		 return new SuccessDataResult<List<JobPosition>>(jobPositionDao.findAll(), "is pozisyonlari listelendi");
 	}
 
 }
