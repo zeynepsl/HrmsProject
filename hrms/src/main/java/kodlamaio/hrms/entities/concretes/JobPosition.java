@@ -21,7 +21,7 @@ public class JobPosition {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id") //bu ozellik, Veritabaninda hangi kolona karsilik geliyor
+	@Column(name = "id") //bu ozellik, Veritabaninda hangi kolona karsilik geliyor,
 	private int id;
 		
 	@Column(name = "job_name")

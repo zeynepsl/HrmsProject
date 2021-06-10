@@ -14,8 +14,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Data
 @Entity
+@Data
 @Table(name = "candidates")
 @PrimaryKeyJoinColumn(name = "user_id")
 @AllArgsConstructor
@@ -28,8 +28,7 @@ public class Candidate extends User{
 	@GeneratedValue()
 	@Column(name = "user_id")
 	private int userId;*/
-	
-	
+		
 	@Column(name = "first_name")
 	private String firstName;
 	
