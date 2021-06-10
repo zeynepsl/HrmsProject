@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "verifications")
 @Data
-@Inheritance(strategy = InheritanceType.JOINED)//extends ettiğimiz sınıflar için Veirfication'dan miras aldıgımızı belirtiyoruz
+@Inheritance(strategy = InheritanceType.JOINED)//extends ettigimiz sınıflar icin Verification'dan miras aldıgımızı belirtiyoruz
 @AllArgsConstructor
 @NoArgsConstructor
 
