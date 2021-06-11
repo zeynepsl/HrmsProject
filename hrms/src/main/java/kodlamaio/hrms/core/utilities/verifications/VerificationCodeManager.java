@@ -30,5 +30,5 @@ public class VerificationCodeManager implements VerificationCodeService{
 		System.out.println("lutfen hesabinizi dogrulamak icin tiklayin:  " + verificationLink );
 		return new SuccessResult();
 	}
-
+	
 }
