@@ -12,4 +12,5 @@ public interface EmployerService {
 	public Result update(Employer employer);
 	public DataResult<List<Employer>> getAll();
 	public DataResult<Employer> getUserByEmail(String email);
+	
 }

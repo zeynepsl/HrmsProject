@@ -29,7 +29,6 @@ public class UserManager<T extends User> implements UserService<User>{
 		else {
 			return new SuccessResult();
 		}
-
 	}
 
 }

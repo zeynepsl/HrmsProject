@@ -12,4 +12,5 @@ public interface CandidateService {
 	public Result delete(Candidate candidate);
 	public Result update(Candidate candidate);
 	public DataResult<List<Candidate>> getAll();
+	
 }

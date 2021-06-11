@@ -6,4 +6,5 @@ import kodlamaio.hrms.core.utilities.results.Result;
 
 public interface VerificationService {
 	Result add(String code, boolean isConfirmed, LocalDateTime localDateTime);
+	
 }

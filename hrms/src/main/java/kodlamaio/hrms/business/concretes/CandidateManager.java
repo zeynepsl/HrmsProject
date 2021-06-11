@@ -44,5 +44,5 @@ public class CandidateManager implements CandidateService{
 	public DataResult<List<Candidate>>  getAll() {
 		return new SuccessDataResult<List<Candidate>>(candidateDao.findAll(), "adaylar listelendi");
 	}
-
+	
 }

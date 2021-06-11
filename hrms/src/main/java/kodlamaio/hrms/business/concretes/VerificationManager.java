@@ -33,5 +33,5 @@ public class VerificationManager implements VerificationService{
 		verificationDao.save(verification);
 		return new SuccessResult();
 	}
-
+	
 }

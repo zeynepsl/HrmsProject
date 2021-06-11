@@ -1,6 +1,5 @@
 package kodlamaio.hrms.business.concretes;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import kodlamaio.hrms.business.abstracts.CandidateService;
 import kodlamaio.hrms.business.abstracts.EmployerService;
 import kodlamaio.hrms.business.abstracts.UserService;
 import kodlamaio.hrms.business.abstracts.VerificationService;
-import kodlamaio.hrms.core.utilities.adapters.CheckService;
 import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
@@ -28,19 +26,17 @@ public class AuthManager implements AuthService{
 	UserService<User> userService;	
 	VerificationService verificationService; //dogrulama kodunu kaydettigimiz sinif
 	VerificationCodeService verificationCodeService;//code ve link gonderme islemlerini yaptigimiz sinif
-	CheckService checkService; //mernis dogrulamasi yaptigimiz sinif
 	
 	@Autowired
 	public AuthManager(EmployerService employerService, UserService<User> userService, 
 			VerificationService verifiactionService, CandidateService candidateService, 
-			VerificationCodeService verificationCodeService, CheckService checkService) {
+			VerificationCodeService verificationCodeService) {
 		super();
 		this.employerService = employerService;
 		this.candidateService = candidateService;
 		this.userService = userService;
 		this.verificationService = verifiactionService;	
 		this.verificationCodeService = verificationCodeService;
-		this.checkService = checkService;
 	}
 	
 	@Override
@@ -117,7 +113,7 @@ public class AuthManager implements AuthService{
 	}
 	
 	
-	//Candidate ici is kurallari - BASLANGIC
+	//Candidate icin is kurallari - BASLANGIC
 	
 	private boolean CheckIfCandidateInformationIsFull(Candidate candidate) {
 		if(candidate.getEmail() != null && candidate.getFirstName() != null && candidate.getLastName() != null
@@ -127,5 +123,5 @@ public class AuthManager implements AuthService{
 		return false;
 	}
 	
-	//Candidate ici is kurallari - BİTİS
+	//Candidate icin is kurallari - BİTİS
 }

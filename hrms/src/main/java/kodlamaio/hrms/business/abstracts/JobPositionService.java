@@ -11,5 +11,5 @@ public interface JobPositionService {
 	public Result delete(JobPosition position);
 	public Result update(JobPosition position);
 	public DataResult<List<JobPosition>> getAll();
-
+	
 }

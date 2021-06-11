@@ -51,5 +51,5 @@ public class JobPositionManager implements JobPositionService{
 	public DataResult<List<JobPosition>> getAll() {
 		 return new SuccessDataResult<List<JobPosition>>(jobPositionDao.findAll(), "is pozisyonlari listelendi");
 	}
-
+	
 }
