@@ -1,8 +1,6 @@
 package kodlamaio.hrms.business.concretes;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +25,7 @@ public class VerificationManager implements VerificationService{
 	public Result add(String code, boolean isConfirmed, LocalDateTime creationDate) {
 		
 		Verification verification = new Verification();
-		verification.setVerificationName("dogrulama");
+		verification.setVerificationName("");
 		verification.setActivationCode(code);
 		verification.setConfirmed(true);
 		verification.setCreationDate(creationDate);

@@ -19,7 +19,6 @@ public class VerificationCodeManager implements VerificationCodeService{
 	public DataResult<String> sendCode(String email) {
 		UUID uuid = UUID.randomUUID();
 		String verificationCode = uuid.toString();
-		System.out.println("kod: " + verificationCode);
 		return new SuccessDataResult<String>(verificationCode, "aktivasyon kodunuz: " + verificationCode);
 	}
 

@@ -1,7 +1,5 @@
 package kodlamaio.hrms.business.concretes;
 
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,17 +29,7 @@ public class UserManager<T extends User> implements UserService<User>{
 		else {
 			return new SuccessResult();
 		}
-		
-		
-		/*List<User> allUsers = userDao.findAll();
-		for (User user : allUsers) {
-			if(user.getEmail() == email) {
-				return new SuccessDataResult<User>(user);
-			}
-		}
-		return new ErrorDataResult<User>("kullanici bulunamadi");
-		 * */
-		
+
 	}
 
 }

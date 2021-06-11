@@ -1,9 +1,7 @@
 package kodlamaio.hrms.business.concretes;
 
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +11,7 @@ import kodlamaio.hrms.business.abstracts.CandidateService;
 import kodlamaio.hrms.business.abstracts.EmployerService;
 import kodlamaio.hrms.business.abstracts.UserService;
 import kodlamaio.hrms.business.abstracts.VerificationService;
+import kodlamaio.hrms.core.utilities.adapters.CheckService;
 import kodlamaio.hrms.core.utilities.results.ErrorResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
@@ -26,23 +25,22 @@ public class AuthManager implements AuthService{
 
 	EmployerService employerService;
 	CandidateService candidateService;
-	UserService<User> userService;
-	
-	VerificationService verificationService; //dogrulama islemleri yaptigimiz sinif
-	
+	UserService<User> userService;	
+	VerificationService verificationService; //dogrulama kodunu kaydettigimiz sinif
 	VerificationCodeService verificationCodeService;//code ve link gonderme islemlerini yaptigimiz sinif
+	CheckService checkService; //mernis dogrulamasi yaptigimiz sinif
 	
 	@Autowired
 	public AuthManager(EmployerService employerService, UserService<User> userService, 
-			VerificationService verifiactionService, CandidateService candidateService, VerificationCodeService verificationCodeService) {
+			VerificationService verifiactionService, CandidateService candidateService, 
+			VerificationCodeService verificationCodeService, CheckService checkService) {
 		super();
 		this.employerService = employerService;
 		this.candidateService = candidateService;
 		this.userService = userService;
-		this.verificationService = verifiactionService;
-		
-		
+		this.verificationService = verifiactionService;	
 		this.verificationCodeService = verificationCodeService;
+		this.checkService = checkService;
 	}
 	
 	@Override
@@ -59,11 +57,11 @@ public class AuthManager implements AuthService{
 		if(!checkIfEqualEmailAndDomain(employer.getEmail(), employer.getWebsiteAdress())) {
 			return new ErrorResult("e-posta ile domain alani ayni degil");
 		}
+		
 		employerService.add(employer);
 		
-		/*String code = verificationCodeService.sendCode(employer.getEmail()).getData();//aktivasyon kodunu donduruyor
-		 LocalDate nowDate = LocalDate.now();  
-		verificationService.add(code, true, nowDate);	*/
+		String code = verificationCodeService.sendCode(employer.getEmail()).getData();//aktivasyon kodunu donduruyor  
+		verificationService.add(code, true, LocalDateTime.now());
 			
 		return new SuccessResult("basarili giris - isveren kaydedildi");
 		
@@ -106,6 +104,7 @@ public class AuthManager implements AuthService{
 		}
 		return false;
 	}
+	//Employer icin is kurallari - BİTİS
 	
 	
 	//ortak is kurallari
@@ -117,7 +116,9 @@ public class AuthManager implements AuthService{
 		return false;
 	}
 	
-	//Candidate ici is kurallari - BASLANGİC
+	
+	//Candidate ici is kurallari - BASLANGIC
+	
 	private boolean CheckIfCandidateInformationIsFull(Candidate candidate) {
 		if(candidate.getEmail() != null && candidate.getFirstName() != null && candidate.getLastName() != null
 				&& candidate.getNationalityId() != null && candidate.getPassword() != null){
@@ -125,5 +126,6 @@ public class AuthManager implements AuthService{
 		}
 		return false;
 	}
-
+	
+	//Candidate ici is kurallari - BİTİS
 }
