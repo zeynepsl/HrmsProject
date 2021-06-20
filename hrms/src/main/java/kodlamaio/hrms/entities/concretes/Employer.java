@@ -14,6 +14,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "employers")
 @Data
 @PrimaryKeyJoinColumn(name = "user_id")
+//primarykeyjoincolumn extend ettiğiniz user entity sindeki tablonun primarykey i ile employer in id sinin aynı olacağını 
+//ve 2 sininde primary key olduğunu belirtiyor.
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=false)

@@ -16,28 +16,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
-@Entity //bu Class bir Entity nesnesidir
-@Table(name = "job_positions") //veritabaninda bu Class ın karsiligi job_positions
+@Table(name = "cities")
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdverts"})
-public class JobPosition {
-	
+public class City {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id") //bu ozellik, Veritabaninda hangi kolona karsilik geliyor,
+	@Column(name = "id")
 	private int id;
-		
-	@Column(name = "job_name")
-	private String jobName;
-
-	@OneToMany(mappedBy = "jobPosition")
+	
+	@Column(name = "city_name")
+	private String cityName;
+	
+	@OneToMany(mappedBy = "city")
 	private List<JobAdvert> jobAdverts;
 	
-	public JobPosition(String jobName, List<JobAdvert> jobAdverts) {
+	public City(String cityName, List<JobAdvert> jobAdverts) {
 		super();
-		this.jobName = jobName ;
+		this.cityName = cityName ;
 		this.jobAdverts = jobAdverts;
 	} 
 }
