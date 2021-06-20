@@ -58,10 +58,9 @@ public class JobAdvertManager implements JobAdvertService{
 		(jobAdvertDao.getAllActiveJobAdvertByEmployer_CompanyName(companyName));
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public Result closeJobAdvert(int id) {
-		JobAdvert jobAdvert = jobAdvertDao.getOne(id);
+		JobAdvert jobAdvert = jobAdvertDao.getById(id);
 		
 		if(jobAdvert == null) {
 			return new ErrorResult("boyle bir is ilani yok");
@@ -72,6 +71,7 @@ public class JobAdvertManager implements JobAdvertService{
 		}
 		
 		jobAdvert.setActive(false);
+		update(jobAdvert);
 		return new SuccessResult("is ilani pasif duruma cekildi");
 	}
 
@@ -88,6 +88,7 @@ public class JobAdvertManager implements JobAdvertService{
 		}
 		
 		jobAdvert.setActive(true);
+		update(jobAdvert);
 		return new SuccessResult("is ilani aktif duruma cekildi");
 	}
 
