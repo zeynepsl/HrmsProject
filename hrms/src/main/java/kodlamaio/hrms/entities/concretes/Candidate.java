@@ -1,13 +1,15 @@
 package kodlamaio.hrms.entities.concretes;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper=false)
-
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "candidate_cvs"})
 public class Candidate extends User{
 	
 	/*@Id
@@ -40,4 +42,7 @@ public class Candidate extends User{
 	
 	@Column(name = "birth_date")
 	private LocalDate birthDate;
+	
+	@OneToMany(mappedBy = "candidate")
+	private List<CandidateCV> candidateCVs;
 }

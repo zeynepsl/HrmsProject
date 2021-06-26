@@ -44,7 +44,6 @@ public class JobAdvert {
 	@Column(name = "max_salary")
 	private int maxSalary;
 	
-	//2007-12-03	
 	@Column(name = "creation_date", columnDefinition = "Date default CURRENT_TIMESTAMP")
 	private LocalDateTime creationDate = LocalDateTime.now();
 	
