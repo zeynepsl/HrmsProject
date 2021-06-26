@@ -22,6 +22,7 @@ public class CandidatesController {
 		this.candidateService = candidateService;
 	}
 	
+	
 	@GetMapping("/getall")
 	public List<Candidate> getAll(){
 		return candidateService.getAll().getData();
