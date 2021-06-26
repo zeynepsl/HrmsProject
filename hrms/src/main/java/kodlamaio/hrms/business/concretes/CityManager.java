@@ -1,9 +1,13 @@
 package kodlamaio.hrms.business.concretes;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import kodlamaio.hrms.business.abstracts.CityService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.CityDao;
 import kodlamaio.hrms.entities.concretes.City;
@@ -32,6 +36,10 @@ public class CityManager implements CityService{
 	public Result update(City city) {
 		cityDao.save(city);
 		return new SuccessResult("sehir guncellendi");
+	}
+	@Override
+	public DataResult<List<City>> getAll() {
+		return new SuccessDataResult<List<City>>(cityDao.findAll(), "sehirler listelendi");
 	}
 
 }

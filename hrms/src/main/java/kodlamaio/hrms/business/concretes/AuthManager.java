@@ -80,7 +80,8 @@ public class AuthManager implements AuthService{
 	}
 	
 	
-	//Employer icin is kurallari - BASLANGIC
+	//Employer icin validasyon - BASLANGIC
+	//TO DO: ayri klasore cekilecek
 	
 	private boolean checkIfEqualEmailAndDomain(String email, String website) {
 		String[] emailToCheck = email.split("@"); //mail adresini @ ifadesine gore bolduk ve emailToCheck dizisine atadik
@@ -100,7 +101,7 @@ public class AuthManager implements AuthService{
 		}
 		return false;
 	}
-	//Employer icin is kurallari - BİTİS
+	//Employer icin validasyon - BİTİS
 	
 	
 	//ortak is kurallari
@@ -113,7 +114,7 @@ public class AuthManager implements AuthService{
 	}
 	
 	
-	//Candidate icin is kurallari - BASLANGIC
+	//Candidate icin validasyon  - BASLANGIC
 	
 	private boolean CheckIfCandidateInformationIsFull(Candidate candidate) {
 		if(candidate.getEmail() != null && candidate.getFirstName() != null && candidate.getLastName() != null
@@ -123,5 +124,5 @@ public class AuthManager implements AuthService{
 		return false;
 	}
 	
-	//Candidate icin is kurallari - BİTİS
+	//Candidate icin validasyon - BİTİS
 }

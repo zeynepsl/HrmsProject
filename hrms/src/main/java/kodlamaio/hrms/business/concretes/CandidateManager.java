@@ -22,27 +22,33 @@ public class CandidateManager implements CandidateService{
 	public CandidateManager(CandidateDao candidateDao) {
 		this.candidateDao = candidateDao;
 	}
+	
 	@Override
-	public Result add(Candidate candidate) {
-		candidateDao.save(candidate);
+	public Result add(Candidate entity) {
+		candidateDao.save(entity);
 		return new SuccessResult("aday kaydedildi");		
 	}
 
 	@Override
-	public Result delete(Candidate candidate) {
-		candidateDao.deleteById(candidate.getId());
+	public Result delete(Candidate entity) {
+		candidateDao.deleteById(entity.getId());
 		return new SuccessResult("aday silindi");
 	}
 
 	@Override
-	public Result update(Candidate candidate) {
-		candidateDao.save(candidate);
+	public Result update(Candidate entity) {
+		candidateDao.save(entity);
 		return new SuccessResult("aday guncellendi");
 	}
 
 	@Override
 	public DataResult<List<Candidate>>  getAll() {
 		return new SuccessDataResult<List<Candidate>>(candidateDao.findAll(), "adaylar listelendi");
+	}
+
+	@Override
+	public DataResult<Candidate> getById(int id) {
+		return new SuccessDataResult<Candidate>(candidateDao.getById(id));
 	}
 	
 }
