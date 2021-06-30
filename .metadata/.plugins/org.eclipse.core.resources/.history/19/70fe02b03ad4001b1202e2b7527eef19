@@ -1,0 +1,45 @@
+package kodlamaio.hrms.dataAccess.abstracts;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import kodlamaio.hrms.entities.concretes.CandidateCV;
+
+public interface CandidateCVDao extends JpaRepository<CandidateCV, Integer>{
+	
+	@Query("select new kodlamaio.hrms.entities.dtos.CandidateCVDao(ed.schoolName, ed.department, ed.startingDate, ed.endDate,"
+			+ "ex.workplaceName, ex.position, ex.startingDate, ex.endDate, "
+			+ "la.languageName, la.level"
+			+ "im.url, "
+			+ "sk.skillName, "
+			+ "co.coverLetter)"
+			+ "From CandidateCV cv "
+			+ "Inner Join cv.educationCVs ed"
+			+ "Inner Join cv.experienceCVs ex"
+			+ "Inner Join cv.languageCVs la"
+			+ "Inner Join cv.linkCVs li"
+			+ "Inner join cv.skillCVs sk"
+			+ "Inner Join cv.coverLetterCVs co"
+			+ "Inner Join cv.imageCVs im")
+	List<CandidateCVDao> getCandidateCVDetails();
+	
+	/*	@Query("select new kodlamaio.hrms.entities.dtos.CandidateCVDao"
+			+ "(ed.) "
+			+ "From CandidateCV cv "
+			+ "Inner Join cv.educationCVs ed"
+			+ "Inner Join cv.experienceCVs ex"
+			+ "Inner Join cv.languageCVs la"
+			+ "Inner Join cv.linkCVs li"
+			+ "Inner join cv.skillCVs sk"
+			+ "Inner Join cv.coverLetterCVs co"
+			+ "Inner Join cv.imageCVs im")
+	List<CandidateCVDao> getCandidateCVDetails();
+	
+	@Query("select new kodlamaio.northwind.entities.dtos.ProductWithCategoryDto"
+			+ "(p.id, p.productName, c.categoryName) " 
+			+ "From Category c Inner Join c.products p")
+	List<ProductWithCategoryDto> getProductWithCategoryDetails();*/
+
+}

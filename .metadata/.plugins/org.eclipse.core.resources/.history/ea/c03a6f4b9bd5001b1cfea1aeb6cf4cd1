@@ -1,0 +1,39 @@
+package kodlamaio.hrms.business.concretes;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import kodlamaio.hrms.business.abstracts.CandidateCVService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.entities.concretes.CandidateCV;
+
+@Service
+public class CandidateCVManager implements CandidateCVService{
+
+	@Override
+	public Result add(CandidateCV entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result delete(CandidateCV entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result update(CandidateCV entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<List<CandidateCV>> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

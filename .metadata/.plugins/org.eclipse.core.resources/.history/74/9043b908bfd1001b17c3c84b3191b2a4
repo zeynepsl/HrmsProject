@@ -1,0 +1,46 @@
+package kodlamaio.hrms.business.concretes;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kodlamaio.hrms.business.abstracts.JobAdvertService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
+import kodlamaio.hrms.dataAccess.abstracts.JobAdvertDao;
+import kodlamaio.hrms.entities.concretes.JobAdvert;
+
+@Service
+public class JobAdvertManager implements JobAdvertService{
+
+	JobAdvertDao jobAdvertDao;
+	
+	@Autowired
+	public JobAdvertManager(JobAdvertDao jobAdvertDao) {
+		this.jobAdvertDao = jobAdvertDao;
+	}
+	
+	@Override
+	public DataResult<List<JobAdvert>> getAllActiveJobAdvert() {
+		return new SuccessDataResult<List<JobAdvert>>(jobAdvertDao.getAllActiveJobAdverts());
+	}
+
+	@Override
+	public DataResult<List<JobAdvert>> getAllByCreationDateAsc() {
+		return new SuccessDataResult<List<JobAdvert>>(jobAdvertDao.getAllByCreationDateAsc());
+	}
+
+	@Override
+	public DataResult<List<JobAdvert>> getAllActiveJobAdvertByCompanyName(String companyName) {
+		return new SuccessDataResult<List<JobAdvert>>
+		(jobAdvertDao.getAllActiveJobAdvertByEmployer_CompanyName(companyName));
+	}
+
+	@Override
+	public Result doPassiveJobAdvert(int id) {
+		JobAdvert advertToPassive = jobAdvertDao.getById(id);
+	}
+
+}

@@ -1,0 +1,58 @@
+package kodlamaio.hrms.api.controllers;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import kodlamaio.hrms.business.abstracts.CandidateCVService;
+import kodlamaio.hrms.business.abstracts.CandidateImageCVService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.entities.concretes.CandidateImageCV;
+
+@RestController
+@RequestMapping("/api/images")
+public class CandidateCVImagesController {
+	CandidateImageCVService imageCVService;
+	CandidateCVService candidateCVService;
+
+	@Autowired
+	public CandidateCVImagesController(CandidateImageCVService imageCVService, CandidateCVService candidateCVService) {
+		super();
+		this.imageCVService = imageCVService;
+		this.candidateCVService = candidateCVService;
+	}
+	
+	@PostMapping("/add")
+	public Result add(@ModelAttribute("image") CandidateImageCV imageCV, @RequestParam(value = "imageFile") MultipartFile imageFile) throws IOException {
+		//CandidateCV candidateCV = candidateCVService.getById(id).getData();
+		//CandidateImageCV candidateImageCV = new CandidateImageCV();
+		//candidateCV.setImageCVs(imageCV)
+		return imageCVService.upload(imageCV, imageFile);
+	}
+	
+	/*
+	 * public Result add(@RequestParam(value = "id") int id, @RequestParam(value = "imageFile") MultipartFile imageFile) {
+		//CandidateCV candidateCV = candidateCVService.getById(id).getData();
+		CandidateImageCV imageCV = new CandidateImageCV();
+		//candidateCV.setImageCVs(imageCV)
+		
+		final Result result = imageCVService.upload();
+		
+		
+		return imageCVService.upload(imageCV, imageFile);
+	}*/
+	
+	@GetMapping("/getAll")
+	public DataResult<List<CandidateImageCV>> getAll() {
+		return imageCVService.getAll();
+	} 
+}

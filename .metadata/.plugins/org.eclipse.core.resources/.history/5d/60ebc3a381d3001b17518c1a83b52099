@@ -1,0 +1,10 @@
+package kodlamaio.hrms.entities.concretes;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "candidate_cv_education")
+public class CandidateEducationCV {
+
+}

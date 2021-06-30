@@ -1,0 +1,50 @@
+package kodlamaio.hrms.business.concretes;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kodlamaio.hrms.business.abstracts.CandidateEducationCVService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.core.utilities.results.SuccessResult;
+import kodlamaio.hrms.dataAccess.abstracts.CandidateEducationCVDao;
+import kodlamaio.hrms.entities.concretes.CandidateEducationCV;
+
+@Service
+public class CandidateEducationCVManager implements CandidateEducationCVService{
+
+	CandidateEducationCVDao candidateEducationCVDao; 
+	
+	@Autowired
+	public CandidateEducationCVManager(CandidateEducationCVDao candidateEducationCVDao) {
+		super();
+		this.candidateEducationCVDao = candidateEducationCVDao;
+	}
+
+	@Override
+	public Result add(CandidateEducationCV entity) {
+		candidateEducationCVDao.save(entity);
+		return new SuccessResult("egitim bilgileri eklendi");
+	}
+
+	@Override
+	public Result delete(CandidateEducationCV entity) {
+		candidateEducationCVDao.delete(entity);
+		return new SuccessResult("egitim bilgileri eklendi");
+	}
+
+	@Override
+	public Result update(CandidateEducationCV entity) {
+		candidateEducationCVDao.save(entity);
+		return new SuccessResult("egitim bilgileri eklendi");
+	}
+
+	@Override
+	public DataResult<List<CandidateEducationCV>> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

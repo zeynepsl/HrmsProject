@@ -1,0 +1,5 @@
+package kodlamaio.hrms.core.utilities.imageUpload;
+
+public interface ImageService {
+
+}

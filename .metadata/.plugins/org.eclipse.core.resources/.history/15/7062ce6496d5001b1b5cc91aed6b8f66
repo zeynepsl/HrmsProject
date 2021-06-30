@@ -1,0 +1,5 @@
+package kodlamaio.hrms.core.business;
+
+public interface BaseService {
+
+}

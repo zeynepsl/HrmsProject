@@ -1,0 +1,15 @@
+package kodlamaio.hrms.business.abstracts;
+
+import java.util.List;
+
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.entities.concretes.JobAdvert;
+
+public interface JobAdvertService {
+	public DataResult<List<JobAdvert>> getAllActiveJobAdvert();
+	
+	public DataResult<List<JobAdvert>> getAllByCreationDateAsc();
+	
+	public DataResult<List<JobAdvert>> getAllActiveJobAdvertByEmployer_CompanyName();
+	
+}

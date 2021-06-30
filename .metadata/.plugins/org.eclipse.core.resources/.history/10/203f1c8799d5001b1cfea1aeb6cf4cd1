@@ -1,0 +1,49 @@
+package kodlamaio.hrms.business.concretes;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import kodlamaio.hrms.business.abstracts.CandidateImageCVService;
+import kodlamaio.hrms.core.utilities.results.DataResult;
+import kodlamaio.hrms.core.utilities.results.Result;
+import kodlamaio.hrms.dataAccess.abstracts.CandidateImageCVDao;
+import kodlamaio.hrms.entities.concretes.CandidateImageCV;
+
+@Service
+public class CandidateImageCVManager implements CandidateImageCVService{
+
+	CandidateImageCVDao candidateImageCVDao; 
+	
+	@Autowired
+	public CandidateImageCVManager(CandidateImageCVDao candidateImageCVDao) {
+		super();
+		this.candidateImageCVDao = candidateImageCVDao;
+	}
+
+	@Override
+	public Result add(CandidateImageCV entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result delete(CandidateImageCV entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Result update(CandidateImageCV entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public DataResult<List<CandidateImageCV>> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

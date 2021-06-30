@@ -1,0 +1,10 @@
+package kodlamaio.hrms.business.concretes;
+
+import org.springframework.stereotype.Service;
+
+import kodlamaio.hrms.business.abstracts.CandidateLinkCVService;
+
+@Service
+public class CandidateLinkCVManager implements CandidateLinkCVService{
+
+}
