@@ -54,4 +54,14 @@ public class CandidateExperienceCVManager implements CandidateExperienceCVServic
 		return new SuccessDataResult<List<CandidateExperienceCV>>(candidateExperienceCVDao.findAll(sort), "data listelendi");
 	}
 
+	@Override
+	public DataResult<List<CandidateExperienceCV>> getByCandidateCV_Id(int candidateCVId) {
+		return new SuccessDataResult<List<CandidateExperienceCV>>(candidateExperienceCVDao.getByCandidateCV_Id(candidateCVId));
+	}
+
+	@Override
+	public DataResult<List<CandidateExperienceCV>> getAllByCandidateCV_Candidate_Id(int candidateId) {
+		return new SuccessDataResult<List<CandidateExperienceCV>>(candidateExperienceCVDao.getAllByCandidateCV_Candidate_Id(candidateId), "data listelendi");
+	}
+
 }

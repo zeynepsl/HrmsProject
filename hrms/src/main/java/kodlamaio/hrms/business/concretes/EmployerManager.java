@@ -24,21 +24,21 @@ public class EmployerManager implements EmployerService{
 	}
 	
 	@Override
-	public Result add(Employer employer) {
-		this.employerDao.save(employer);
+	public Result add(Employer entity) {
+		this.employerDao.save(entity);
 		return new SuccessResult("is veren kaydedildi");
 	}
 
 	@Override
-	public Result delete(Employer employer) {
-		employerDao.delete(employer);
+	public Result delete(Employer entity) {
+		employerDao.delete(entity);
 		return new SuccessResult("is veren silindi");
 		
 	}
 
 	@Override
-	public Result update(Employer employer) {
-		employerDao.save(employer);
+	public Result update(Employer entity) {
+		employerDao.save(entity);
 		return new SuccessResult("is veren guncellendi");
 	}
 

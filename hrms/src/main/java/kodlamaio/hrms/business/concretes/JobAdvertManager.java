@@ -43,6 +43,11 @@ public class JobAdvertManager implements JobAdvertService{
 	}
 	
 	@Override
+	public DataResult<List<JobAdvert>> getAll() {
+		return new SuccessDataResult<List<JobAdvert>>(jobAdvertDao.findAll(), "is ilanlari listelendi");
+	}
+	
+	@Override
 	public DataResult<List<JobAdvert>> getAllActiveJobAdvert() {
 		return new SuccessDataResult<List<JobAdvert>>(jobAdvertDao.getAllActiveJobAdverts());
 	}
@@ -91,6 +96,8 @@ public class JobAdvertManager implements JobAdvertService{
 		update(jobAdvert);
 		return new SuccessResult("is ilani aktif duruma cekildi");
 	}
+
+
 
 
 }

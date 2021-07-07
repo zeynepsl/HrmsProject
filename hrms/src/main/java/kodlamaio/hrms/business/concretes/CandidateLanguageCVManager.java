@@ -47,4 +47,14 @@ public class CandidateLanguageCVManager implements CandidateLanguageCVService{
 		return new SuccessDataResult<List<CandidateLanguageCV>>(candidateLanguageCVDao.findAll(), "yabanci diller listelendi");
 	}
 
+	@Override
+	public DataResult<List<CandidateLanguageCV>> getAllByCandidateCV_Id(int candidateCVId) {
+		return new SuccessDataResult<List<CandidateLanguageCV>>(candidateLanguageCVDao.getByCandidateCV_Id(candidateCVId));
+	}
+
+	@Override
+	public DataResult<List<CandidateLanguageCV>> getAllByCandidateCV_Candidate_Id(int candidateId) {
+		return new SuccessDataResult<List<CandidateLanguageCV>>(candidateLanguageCVDao.getAllByCandidateCV_Candidate_Id(candidateId));
+	}
+
 }

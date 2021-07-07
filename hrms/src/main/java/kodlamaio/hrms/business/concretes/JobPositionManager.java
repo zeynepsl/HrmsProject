@@ -26,9 +26,9 @@ public class JobPositionManager implements JobPositionService{
 	}
 
 	@Override
-	public Result add(JobPosition position) {
-		if(jobPositionDao.findByJobName(position.getJobName()) == null) {
-			jobPositionDao.save(position);
+	public Result add(JobPosition entity) {
+		if(jobPositionDao.findByJobName(entity.getJobName()) == null) {
+			jobPositionDao.save(entity);
 			return new SuccessResult("is pozisyonu kaydedildi");
 		}	
 		return new ErrorResult("bu is pozisyonu zaten mevcut");
@@ -36,14 +36,14 @@ public class JobPositionManager implements JobPositionService{
 	}
 
 	@Override
-	public Result delete(JobPosition position) {
-		jobPositionDao.delete(position);
+	public Result delete(JobPosition entity) {
+		jobPositionDao.delete(entity);
 		return new SuccessResult("is pozisyonu silindi");
 	}
 
 	@Override
-	public Result update(JobPosition position) {
-		jobPositionDao.save(position);
+	public Result update(JobPosition entity) {
+		jobPositionDao.save(entity);
 		return new SuccessResult("is pozisyonu guncellendi");
 	}
 

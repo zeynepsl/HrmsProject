@@ -54,4 +54,16 @@ public class CandidateEducationCVManager implements CandidateEducationCVService{
 		return new SuccessDataResult<List<CandidateEducationCV>>(candidateEducationCVDao.findAll(sort));
 	}
 
+	@Override
+	public DataResult<List<CandidateEducationCV>> getByCandidateCV_Id(int candidateCVId) {
+		return new SuccessDataResult<List<CandidateEducationCV>>(candidateEducationCVDao.getByCandidateCV_Id(candidateCVId), "data listelendi");
+	}
+
+	@Override
+	public DataResult<List<CandidateEducationCV>> getAllByCandidateCV_Candidate_Id(int candidateId) {
+		return new SuccessDataResult<List<CandidateEducationCV>>(candidateEducationCVDao.getAllByCandidateCV_Candidate_Id(candidateId), "data litelendi");
+	}
+
+
+
 }

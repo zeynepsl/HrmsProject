@@ -47,5 +47,15 @@ public class CandidateCoverLetterCVManager implements CandidateCoverLetterCVServ
 		return new SuccessDataResult<List<CVCoverLetter>>(coverLetterDao.findAll(), "on yazilar listelendi");
 	}
 
+	@Override
+	public DataResult<List<CVCoverLetter>> getAllByCandidateCV_Id(int candidateId) {
+		return new SuccessDataResult<List<CVCoverLetter>>(coverLetterDao.getByCandidateCV_Id(candidateId));
+	}
+
+	@Override
+	public DataResult<List<CVCoverLetter>> getAllByCandidateCV_Candidate_Id(int candidateId) {
+		return new SuccessDataResult<List<CVCoverLetter>>(coverLetterDao.getAllByCandidateCV_Candidate_Id(candidateId), "data listelendi");
+	}
+
 
 }

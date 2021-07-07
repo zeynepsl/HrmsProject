@@ -31,11 +31,13 @@ public class CandidateImageCVManager implements CandidateImageCVService{
 
 	@Override
 	public Result upload(CandidateImageCV imageCV , MultipartFile imageFile) {
+		
+		
 		@SuppressWarnings("unchecked")
 		Map<String,String> uploadImage = (Map<String, String>) this.imageService.upload(imageFile).getData();
 		imageCV.setUrl(uploadImage.get("url"));
 		//this.candidateImageCVDao.save(imageCV);
-		//return new SuccessResult("Image has been added.");
+		//return new SuccessResult("resim eklendi");
 		return add(imageCV);
 	}
 	
@@ -60,6 +62,16 @@ public class CandidateImageCVManager implements CandidateImageCVService{
 	@Override
 	public DataResult<List<CandidateImageCV>> getAll() {
 		return new SuccessDataResult<List<CandidateImageCV>>(candidateImageCVDao.findAll(), "cv resimleri listelendi!");
+	}
+
+	@Override
+	public DataResult<List<CandidateImageCV>> getAllByCandidateCV_Id(int candidateCVId) {
+		return new SuccessDataResult<List<CandidateImageCV>>(candidateImageCVDao.getByCandidateCV_Id(candidateCVId));
+	}
+
+	@Override
+	public DataResult<List<CandidateImageCV>> getAllByCandidateCV_Candidate_Id(int candidateId) {
+		return new SuccessDataResult<List<CandidateImageCV>>(candidateImageCVDao.getAllByCandidateCV_Candidate_Id(candidateId), "data listelendi");
 	}
 
 

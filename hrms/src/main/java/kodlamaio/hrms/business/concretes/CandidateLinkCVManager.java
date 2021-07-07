@@ -41,7 +41,7 @@ public class CandidateLinkCVManager implements CandidateLinkCVService{
 		//veriyi guncellemek istediğimizde aslında talodaki mecvut bir veriyi yeniden veritabanina eklemis oluyoruz--> save(entity);
 		//veritabaninda bu verinin tekrar etmemesi icin once veritabaninda siliyoruz:
 		delete(entity);
-		//sonra veriyi guncellenmis bir şekilde ekliyoruz:
+		//sonra guncellenmis veriyi ekliyoruz:
 		candidateLinkCVDao.save(entity);
 		return new SuccessResult("link guncellendi");
 	}
@@ -49,6 +49,16 @@ public class CandidateLinkCVManager implements CandidateLinkCVService{
 	@Override
 	public DataResult<List<CandidateLinkCV>> getAll() {
 		return new SuccessDataResult<List<CandidateLinkCV>>(candidateLinkCVDao.findAll(), "linkler listelendi");
+	}
+
+	@Override
+	public DataResult<List<CandidateLinkCV>> getAllByCandidateCV_Id(int candidateCVId) {
+		return new SuccessDataResult<List<CandidateLinkCV>>(candidateLinkCVDao.getByCandidateCV_Id(candidateCVId));
+	}
+
+	@Override
+	public DataResult<List<CandidateLinkCV>> getAllByCandidateCV_Candidate_Id(int candidateId) {
+		return new SuccessDataResult<List<CandidateLinkCV>>(candidateLinkCVDao.getAllByCandidateCV_Candidate_Id(candidateId));
 	}
 
 }
