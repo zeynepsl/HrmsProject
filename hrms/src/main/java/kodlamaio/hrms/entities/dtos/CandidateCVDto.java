@@ -2,6 +2,7 @@ package kodlamaio.hrms.entities.dtos;
 
 import java.util.List;
 
+import kodlamaio.hrms.entities.concretes.CVCoverLetter;
 import kodlamaio.hrms.entities.concretes.Candidate;
 import kodlamaio.hrms.entities.concretes.CandidateEducationCV;
 import kodlamaio.hrms.entities.concretes.CandidateExperienceCV;
@@ -17,6 +18,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CandidateCVDto {
+	//map islemi business katmaninda yapildi
+	
 	private Candidate candidate;
 	private List<CandidateEducationCV> educationCVs;
 	private List<CandidateExperienceCV> experienceCVs;
@@ -24,4 +27,5 @@ public class CandidateCVDto {
 	private List<CandidateSkillCV> skillCVs;
 	private List<CandidateLinkCV> linkCVs;
 	private List<CandidateImageCV> imageCVs;
+	private List<CVCoverLetter> coverLetterCVs;
 }
