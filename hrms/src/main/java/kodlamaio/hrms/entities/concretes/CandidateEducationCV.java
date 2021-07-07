@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +23,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "candidate_cvs"})
 public class CandidateEducationCV {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,8 +42,9 @@ public class CandidateEducationCV {
 	@Column(name = "end_date")
 	private LocalDateTime endDate;
 	
+	@JsonIgnore
 	@ManyToOne()//tabloya gore dusun
 	@JoinColumn(name = "candidate_cv_id")
 	private CandidateCV candidateCV;//Tablodaki her bir satıra gore:
-	//(CandidateEducationCV Class'ına gore - her bir CandidateEducationCV nesnesine gore) dusun
+	//( CandidateEducationCV Class'ına gore - her bir CandidateEducationCV nesnesine gore) dusun
 }

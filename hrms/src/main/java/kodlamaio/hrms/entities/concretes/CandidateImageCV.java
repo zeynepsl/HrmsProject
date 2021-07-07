@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,6 +26,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @Builder
 @ToString
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "candidate_cvs"})
 @EqualsAndHashCode
 public class CandidateImageCV {
 	@Id
@@ -33,6 +37,7 @@ public class CandidateImageCV {
 	@Column(name = "url")
 	private String url;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn(name = "candidate_cv_id")
 	private CandidateCV candidateCV;
