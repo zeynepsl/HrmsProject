@@ -1,8 +1,0 @@
-package kodlamaio.hrms.business.abstracts;
-
-import kodlamaio.hrms.core.business.BaseService;
-import kodlamaio.hrms.entities.concretes.CandidateCV;
-
-public interface CandidateCVService extends BaseService<CandidateCV>{
-
-}

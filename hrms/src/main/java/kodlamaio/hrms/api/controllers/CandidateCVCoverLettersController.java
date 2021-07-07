@@ -35,4 +35,9 @@ public class CandidateCVCoverLettersController {
 		return coverLetterCVService.getAll();
 	}
 	
+	@GetMapping("/getAllByCandidateCV_Candidate_Id")
+	public DataResult<List<CVCoverLetter>> getAllByCandidateCV_Candidate_Id(int candidateId){
+		return coverLetterCVService.getAllByCandidateCV_Candidate_Id(candidateId);
+	}
+	
 }

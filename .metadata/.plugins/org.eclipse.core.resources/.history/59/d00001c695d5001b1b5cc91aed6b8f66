@@ -1,7 +1,0 @@
-package kodlamaio.hrms.business.concretes;
-
-import kodlamaio.hrms.business.abstracts.CandidateCVService;
-
-public class CandidateCVManager implements CandidateCVService{
-
-}

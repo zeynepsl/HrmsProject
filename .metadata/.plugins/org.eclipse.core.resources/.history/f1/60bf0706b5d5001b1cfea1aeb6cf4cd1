@@ -1,5 +1,0 @@
-package kodlamaio.hrms.core.utilities.imageUpload;
-
-public class CloudinaryImageManager {
-
-}

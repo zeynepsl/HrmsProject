@@ -39,4 +39,9 @@ public class CandidateCVExperiencesController {
 	public DataResult<List<CandidateExperienceCV>> getByEndDateSorted(){
 		return experienceCVService.getByEndDateSorted();
 	}
+	
+	@GetMapping("/getAllByCandidateCV_Candidate_Id")
+	public DataResult<List<CandidateExperienceCV>> getAllByCandidateCV_Candidate_Id(int candidateId){
+		return experienceCVService.getAllByCandidateCV_Candidate_Id(candidateId);
+	}
 }

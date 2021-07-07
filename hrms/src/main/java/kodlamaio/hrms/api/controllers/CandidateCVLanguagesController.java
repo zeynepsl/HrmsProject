@@ -34,4 +34,9 @@ public class CandidateCVLanguagesController {
 	public DataResult<List<CandidateLanguageCV>> getAll() {
 		return languageCVService.getAll();
 	} 
+	
+	@GetMapping("getAllByCandidateCV_Candidate_Id")
+	public DataResult<List<CandidateLanguageCV>> getAllByCandidateCV_Candidate_Id(int candidateId){
+		return languageCVService.getAllByCandidateCV_Candidate_Id(candidateId);
+	}
 }

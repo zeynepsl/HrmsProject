@@ -13,6 +13,7 @@ import kodlamaio.hrms.business.abstracts.CandidateCVService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.CandidateCV;
+import kodlamaio.hrms.entities.dtos.CandidateCVDto;
 
 @RestController
 @RequestMapping("/api/candidatecvs")
@@ -35,4 +36,15 @@ public class CandidateCVsController {
 		return candidateCVService.getAll();
 	}
 	
+	@GetMapping("/getAllByCandidateId")
+	public DataResult<List<CandidateCV>> getAllByCandidateId(int candidateId){
+		return candidateCVService.getAllByCandidateId(candidateId);
+	}
+	
+	@GetMapping("getCandidateCVWithDetailsByCandidateId")
+	public DataResult<CandidateCVDto> getCandidateCVWithDetailsByCandidateId(int candidateId){
+		return candidateCVService.getCandidateCVWithDetailsByCandidateId(candidateId);
+	}
+	
+
 }

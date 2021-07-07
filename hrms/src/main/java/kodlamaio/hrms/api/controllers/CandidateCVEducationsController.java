@@ -39,4 +39,9 @@ public class CandidateCVEducationsController {
 	public DataResult<List<CandidateEducationCV>> getAllEndDateSorted(){
 		return educationCVService.getAllEndDateSorted();
 	}
+	
+	@GetMapping("getAllByCandidateCV_Candidate_Id")
+	public DataResult<List<CandidateEducationCV>> getAllByCandidateCV_Candidate_Id(int candidateId){
+		return educationCVService.getAllByCandidateCV_Candidate_Id(candidateId);
+	}
 }

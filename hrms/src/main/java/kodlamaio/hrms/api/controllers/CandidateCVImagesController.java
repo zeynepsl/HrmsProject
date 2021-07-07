@@ -36,6 +36,7 @@ public class CandidateCVImagesController {
 	}
 	
 	//resim eklemek icin ilk secenek:
+	//Builder, ToString, EqualsAndHashCode --> Image Class'ina eklenmeli
 	/*@PostMapping("/upload")
 	public ResponseEntity<Result> upload(@RequestParam int candidateCVId, @RequestBody MultipartFile imageFile) {
 		final Result result = imageCVService.upload(CandidateImageCV.builder().candidateCV(CandidateCV.builder().id(candidateCVId).build()).build(),
@@ -46,23 +47,28 @@ public class CandidateCVImagesController {
 	
 	
 	//resim eklemek icin diger secenek:
-	@PostMapping("/upload2")
-	public Result add(@RequestParam(value = "candidateId") int candidateId, @RequestParam(value = "imageFile") MultipartFile imageFile) throws IOException {
+	@PostMapping("/upload")
+	public Result upload(@RequestParam(value = "candidateId") int candidateId, @RequestParam(value = "candidateCVId") int candidateCVId,
+			@RequestParam(value = "imageFile") MultipartFile imageFile) throws IOException {
 
 		Candidate candidate = candidateService.getById(candidateId).getData();
-		CandidateCV candidateCV = candidateCVService.getByCandidateId(candidateId).getData();
-		candidateCV.setCandidate(candidate);
-		
+		CandidateCV toUploadCV = candidateCVService.getById(candidateCVId).getData();		
 		CandidateImageCV candidateImageCV = new CandidateImageCV();	
-		candidateImageCV.setCandidateCV(candidateCV);
 		
+		toUploadCV.setCandidate(candidate);
+		candidateImageCV.setCandidateCV(toUploadCV);
+	
 		return imageCVService.upload(candidateImageCV, imageFile);
 	}
-	
 	
 	
 	@GetMapping("/getAll")
 	public DataResult<List<CandidateImageCV>> getAll() {
 		return imageCVService.getAll();
 	} 
+	
+	@GetMapping("getAllByCandidateCV_Candidate_Id")
+	public DataResult<List<CandidateImageCV>> getAllByCandidateCV_Candidate_Id(int candidateId){
+		return imageCVService.getAllByCandidateCV_Candidate_Id(candidateId);
+	}
 }

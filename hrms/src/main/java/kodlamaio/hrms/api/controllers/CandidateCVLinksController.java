@@ -34,5 +34,10 @@ public class CandidateCVLinksController {
 	public DataResult<List<CandidateLinkCV>> getAll() {
 		return linkCVService.getAll();
 	} 
+	
+	@GetMapping("/getAllByCandidateCV_Candidate_Id")
+	public DataResult<List<CandidateLinkCV>> getAllByCandidateCV_Candidate_Id(int candidateId){
+		return linkCVService.getAllByCandidateCV_Candidate_Id(candidateId);
+	}
 
 }
