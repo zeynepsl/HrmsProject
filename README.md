@@ -5,9 +5,9 @@
   <a href="https://github.com/zeynepsl/HrmsProject/issues">request feature</a>
 </div>
 
-## About the project
+# About the project
 
-# Technologies used
+## Technologies used
 - Java
 - Spring Boot
 - Spring Framework
@@ -15,7 +15,7 @@
 - PostgreSql
 - Cloudinary
 
-# Database Diagram
+## Database Diagram
 ![diagram](hrms.PNG)
 
 
