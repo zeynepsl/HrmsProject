@@ -1,6 +1,6 @@
 <div align="center">
   <h1>HrmsProject</h1>
-  <p>Hrms is a human resources project that offers opportunities to candidates who want to have a job.</p><br><br>
+  <p>Hrms is a human resources project that offers opportunities to candidates who want to have a job.</p><br>
   <a href="https://github.com/zeynepsl/HrmsProject/issues">report bug</a> -
   <a href="https://github.com/zeynepsl/HrmsProject/issues">request feature</a>
 </div>
