@@ -3,6 +3,10 @@
           </p>
   <p style="text-align: center;><a href="https://github.com/zeynepsl/HrmsProject/issues">report bug</a><br></p>
   <a href="https://github.com/zeynepsl/HrmsProject/issues">request feature</a>
+  
+<div align="center">
+  <h1>HrmsProject</h1>
+</div>
 
 
 
