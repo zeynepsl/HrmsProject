@@ -8,12 +8,12 @@
 # About the project
 
 ## Technologies used
-- Java
+- [Java](https://java.com/en/)
 - Spring Boot
 - Spring Framework
-- SpringFoxHibernate
-- PostgreSql
-- Cloudinary
+- Spring Fox Hibernate
+- [PostgreSql](https://www.postgresql.org/)
+- [Cloudinary](https://cloudinary.com/)
 
 ## Database Diagram
 ![diagram](hrms.PNG)
