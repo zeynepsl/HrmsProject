@@ -29,8 +29,8 @@
 - Autowired in SpringFramework structure is used for IoC.
 
 ## Contributing
-[report bug](https://github.com/zeynepsl/HrmsProject/issues)
+[report bug](https://github.com/zeynepsl/HrmsProject/issues) - 
 [request feature](https://github.com/zeynepsl/HrmsProject/issues)
 
 ## Acknowledgements
-[Engin Demiroğ](https://github.com/engindemirog)
+- [Engin Demiroğ](https://github.com/engindemirog)
