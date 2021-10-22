@@ -1,8 +1,8 @@
-<p style="text-align: center;>
+<div style="text-align: center;>
   <h1>HrmsProject</h1>
   <a href="https://github.com/zeynepsl/HrmsProject/issues">report bug</a><br>
   <a href="https://github.com/zeynepsl/HrmsProject/issues">request feature</a>
-</p>
+</div>
 
 
 ## About the project
