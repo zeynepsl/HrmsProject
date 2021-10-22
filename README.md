@@ -1,4 +1,9 @@
-# HrmsProject
+<p align="center">
+  <h1>HrmsProject</h1>
+  <a href=""></a>
+[Report Bug](https://github.com/zeynepsl/HrmsProject/issues) - [Request Feature](https://github.com/zeynepsl/HrmsProject/issues)
+</p>
+
 
 ## About the project
 Hrms is a human resources project that offers opportunities to candidates who want to have a job.
