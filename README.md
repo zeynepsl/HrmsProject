@@ -1,7 +1,8 @@
 <div align="center">
   <h1>HrmsProject</h1>
   <p>Hrms is a human resources project that offers opportunities to candidates who want to have a job.</p><br>
-  
+  <a href="https://github.com/zeynepsl/HrmsProject/issues">report bug</a><br>
+  <a href="https://github.com/zeynepsl/HrmsProject/issues">request feature</a>
 </div>
 
 # About the project
@@ -29,8 +30,7 @@
 - Autowired in SpringFramework structure is used for IoC.
 
 ## Contributing
-[report bug](https://github.com/zeynepsl/HrmsProject/issues) - 
-[request feature](https://github.com/zeynepsl/HrmsProject/issues)
+
 
 ## Acknowledgements
 - [Engin Demiroğ](https://github.com/engindemirog)
