@@ -27,7 +27,7 @@
 [WebAPI](https://github.com/zeynepsl/HrmsProject/tree/master/hrms/src/main/java/kodlamaio/hrms/api/controllers) layers).
 - It brings together [candidates](https://github.com/zeynepsl/HrmsProject/blob/master/hrms/src/main/java/kodlamaio/hrms/entities/concretes/Candidate.java) 
   and [employers](https://github.com/zeynepsl/HrmsProject/blob/master/hrms/src/main/java/kodlamaio/hrms/entities/concretes/Employer.java).
-- Each method is provided to return a Result structure [result](https://github.com/zeynepsl/HrmsProject/tree/master/hrms/src/main/java/kodlamaio/hrms/core/utilities/results)
+- Each method is provided to return a [Result structure](https://github.com/zeynepsl/HrmsProject/tree/master/hrms/src/main/java/kodlamaio/hrms/core/utilities/results).
 - Autowired in SpringFramework structure is used for IoC.
 
 ## Acknowledgements
