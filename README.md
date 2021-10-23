@@ -6,7 +6,6 @@
 </div>
 
 # About the project
-[HRMS project](https://github.com/zeynepsl/HrmsProject)
 
 ## Technologies used
 - [Java](https://java.com/en/)
